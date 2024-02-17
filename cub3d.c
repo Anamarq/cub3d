@@ -131,7 +131,7 @@ void leaks(void)
 	system("leaks -q cub3d");
 }
 
-int32_t main(int32_t argc, const char* argv[])
+/*int32_t main(int32_t argc, const char* argv[])
 {
 	(void) argc;
 	(void) argv;
@@ -164,5 +164,5 @@ int32_t main(int32_t argc, const char* argv[])
 	mlx_loop(scene_data.mlx);
 	mlx_terminate(scene_data.mlx);
 	return (EXIT_SUCCESS);
-}
+}*/
 

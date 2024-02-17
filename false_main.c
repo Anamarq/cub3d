@@ -6,11 +6,15 @@
 /*   By: ljustici <ljustici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 18:51:03 by ljustici          #+#    #+#             */
-/*   Updated: 2024/02/17 18:51:06 by ljustici         ###   ########.fr       */
+/*   Updated: 2024/02/17 20:03:28 by ljustici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-t_data data;
+#include "cub3d.h"
+
+int main(int argc, const char **argv)
+{
+    t_data data;
 	char **content;
 
 	init_data_struct(&data);
@@ -20,7 +24,7 @@ t_data data;
 		exit(-1);
 	}
 	content = get_file_input(&data);
-	if (!content)
+	if (data.error != NO_ERROR)
 	{
 		ft_error(data);
 		close(data.fd);
@@ -28,3 +32,5 @@ t_data data;
 	}
 	debug_map_content(content);
 	close(data.fd);
+    return (0);
+}

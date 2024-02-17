@@ -6,7 +6,7 @@
 /*   By: ljustici <ljustici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 17:50:20 by ljustici          #+#    #+#             */
-/*   Updated: 2024/02/17 18:42:00 by ljustici         ###   ########.fr       */
+/*   Updated: 2024/02/17 20:45:05 by ljustici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,37 @@ int	ft_array_len(char **str)
 	while (str[i])
 		i++;
 	return (i);
+}
+
+int is_invalid_char_in_map(char *line)
+{
+	size_t i;
+	size_t n;
+
+	i = 0;
+	n = ft_strlen(line);
+	while(i < n)
+	{
+		if (line[i] != 32 && line[i] != '0' && line[i] != '1'
+			&& line[i] != 'N' && line[i] != 'E' && line[i] != 'S'
+			&& line[i] != 'W')
+				return(1);
+		i++;
+	}
+	return (0);
+}
+
+int is_all_spaces(char *line)
+{
+	size_t i;
+	size_t n;
+
+	i = 0;
+	n = ft_strlen(line);
+	while(i < n && line[i] != '\n')
+	{
+		if (line[i] != ' ')
+			return (0);
+	}
+	return (1);
 }

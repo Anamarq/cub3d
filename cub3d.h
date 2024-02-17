@@ -6,7 +6,7 @@
 /*   By: ljustici <ljustici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 15:56:54 by ljustici          #+#    #+#             */
-/*   Updated: 2024/02/17 18:35:40 by ljustici         ###   ########.fr       */
+/*   Updated: 2024/02/17 20:41:25 by ljustici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ typedef enum e_error
     ERROR_FILE_EMPTY,
 	ERROR_NO_PATHS,
 	ERROR_MALLOC_ERROR,
+	INVALID_CHAR,
 	END = 99,
 }	t_error;
 
@@ -64,6 +65,9 @@ void ft_error(t_data data);
 char **get_file_input(t_data *data);
 char	*ft_join_free(char *s1, char *s2);
 int	ft_array_len(char **str);
+int is_invalid_char_in_map(char *line);
+int is_all_spaces(char *line);
+int is_line_correct(t_data *data, char *line);
 
 /**********************************
  ******* DEBUG PARSER FUNCTIONS ***
