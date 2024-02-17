@@ -6,7 +6,7 @@
 /*   By: ljustici <ljustici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 17:57:53 by ljustici          #+#    #+#             */
-/*   Updated: 2023/10/03 10:23:28 by ljustici         ###   ########.fr       */
+/*   Updated: 2024/02/17 17:21:29 by ljustici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 # include <sys/uio.h>
 # include <stdarg.h>
 # include <stdio.h>
+
+#define BUFFER_SIZE 30
 
 typedef struct s_list
 {
@@ -72,10 +74,6 @@ void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 char	*get_next_line(int fd);
-void	free_str(char **str);
-char	*ft_get_line(char *str_concat);
-char	*ft_new_str(char *str_concat);
-char	*get_read_str_concat(int fd, char *str_concat);
 int		ft_printf(int fd, char const *format, ...);
 int		ft_check_flag(char const flag, va_list args, int fd);
 int		ft_putchar(char c, int fd);

@@ -74,7 +74,13 @@ int32_t main(int32_t argc, const char* argv[])
 		ft_error(data);
 		exit(-1);
 	}
-	
+	else if (check_map_file(&data) != 0)
+	{
+		ft_error(data);
+		close(data.fd);
+		exit(-1);
+	}
+	close(data.fd);
 	/********************/
 
 

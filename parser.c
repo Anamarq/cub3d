@@ -6,7 +6,7 @@
 /*   By: ljustici <ljustici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 16:10:50 by ljustici          #+#    #+#             */
-/*   Updated: 2024/02/17 17:01:27 by ljustici         ###   ########.fr       */
+/*   Updated: 2024/02/17 17:48:42 by ljustici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,31 @@ int check_params(int argc, const char **argv, t_data *data)
     return (0);
 }
 
+int is_file_empty(char *line, t_data *data)
+{
+    if (!line)
+    {
+        data->error = ERROR_FILE_EMPTY;
+        return (1);
+    }
+    return (0);
+}
+
 /*int discard_empty_lines(t_data *data)
 {
     
 }*/
+
+int check_map_file(t_data *data)
+{
+    char *line;
+    
+    line = get_next_line(data->fd);
+    if (is_file_empty(line, data) == 1)
+        return (1);
+    while(line)
+    {
+        
+    }
+    return (0);
+}

@@ -6,7 +6,7 @@ LIBMLX	= ./MLX42
 
 HEADERS	= -I ./include -I $(LIBMLX)
 LIBS	= -lglfw -L /Users/$(USER)/.brew/opt/glfw/lib/ $(LIBMLX)/libmlx42.a
-SRCS	= cub3d.c parser.c parser_error.c
+SRCS	= cub3d.c parser.c parser_error.c parser_utils.c
 OBJS	= ${SRCS:.c=.o}
 
 LIBFT_PATH		= libft/libft.a
@@ -20,17 +20,19 @@ libmlx:
 	@$(CC) $(CFLAGS) -o $@ -c $<
 
 $(NAME): $(OBJS) $(LIBFT_PATH)
-	@$(CC) $(OBJS) $(LIBS) $(HEADERS) -o $(NAME)
+	@$(CC) $(OBJS) $(LIBS) $(HEADERS) $(LIBFT_PATH) -o $(NAME)
 
 $(LIBFT_PATH):
 		make -C libft all
 
 clean:
-	@rm -f $(OBJS) $(LIBFT_PATH)
+	@rm -f $(OBJS)
+	make -C libft clean
 	@$(MAKE) -C $(LIBMLX) clean
 
 fclean: clean
-	@rm -f $(NAME) $(LIBFT_OBJS) $(LIBFT)
+	@make fclean -C libft/
+	@rm -f $(NAME)
 	@$(MAKE) -C $(LIBMLX) fclean
 
 re: clean all

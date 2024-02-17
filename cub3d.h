@@ -6,7 +6,7 @@
 /*   By: ljustici <ljustici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 15:56:54 by ljustici          #+#    #+#             */
-/*   Updated: 2024/02/17 16:55:02 by ljustici         ###   ########.fr       */
+/*   Updated: 2024/02/17 17:28:01 by ljustici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,14 @@
 #include <stdbool.h>
 #include <fcntl.h>
 #include <unistd.h>
+#include "libft/libft.h"
 
 typedef enum e_error
 {
 	NO_ERROR,
 	ERROR_ARGMTS,
 	ERROR_FILE,
+    ERROR_FILE_EMPTY,
 	ERROR_NO_PATHS,
 	ERROR_MALLOC_ERROR,
 	END = 99,
@@ -59,6 +61,7 @@ typedef struct s_data
 void init_data_struct(t_data *data);
 int check_params(int argc, const char **argv, t_data *data);
 void ft_error(t_data data);
+int check_map_file(t_data *data);
 
 /**********************************
  ******* DEBUG PARSER FUNCTIONS ***
