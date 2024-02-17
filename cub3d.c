@@ -8,6 +8,8 @@
 #include <stdbool.h>
 # include "MLX42/include/MLX42/MLX42.h"
 
+#include "cub3d.h"
+
 #define WIDTH 512
 #define HEIGHT 512
 
