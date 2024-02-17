@@ -6,7 +6,7 @@
 /*   By: ljustici <ljustici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 16:10:50 by ljustici          #+#    #+#             */
-/*   Updated: 2024/02/17 16:55:43 by ljustici         ###   ########.fr       */
+/*   Updated: 2024/02/17 17:01:27 by ljustici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,3 +47,8 @@ int check_params(int argc, const char **argv, t_data *data)
     }
     return (0);
 }
+
+/*int discard_empty_lines(t_data *data)
+{
+    
+}*/

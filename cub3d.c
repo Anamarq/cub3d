@@ -74,7 +74,7 @@ int32_t main(int32_t argc, const char* argv[])
 		ft_error(data);
 		exit(-1);
 	}
-
+	
 	/********************/
 
 
