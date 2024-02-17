@@ -6,7 +6,7 @@
 /*   By: ljustici <ljustici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 15:56:54 by ljustici          #+#    #+#             */
-/*   Updated: 2024/02/17 16:42:48 by ljustici         ###   ########.fr       */
+/*   Updated: 2024/02/17 16:55:02 by ljustici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <fcntl.h>
+#include <unistd.h>
 
 typedef enum e_error
 {
@@ -36,6 +38,7 @@ typedef struct s_color
 
 typedef struct s_data
 {
+    int                 fd;
 	t_error				error;
 	char				*pipeline;
 	char				*no;
@@ -54,7 +57,7 @@ typedef struct s_data
 ***********************************/
 
 void init_data_struct(t_data *data);
-int check_params(int argc, char *argv, t_data *data);
+int check_params(int argc, const char **argv, t_data *data);
 void ft_error(t_data data);
 
 /**********************************

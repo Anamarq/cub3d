@@ -72,7 +72,7 @@ int32_t main(int32_t argc, const char* argv[])
 	if (check_params(argc, argv, &data) != 0)
 	{
 		ft_error(data);
-		exit;
+		exit(-1);
 	}
 
 	/********************/
