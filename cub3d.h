@@ -6,7 +6,7 @@
 /*   By: ljustici <ljustici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 15:56:54 by ljustici          #+#    #+#             */
-/*   Updated: 2024/02/17 17:28:01 by ljustici         ###   ########.fr       */
+/*   Updated: 2024/02/17 18:35:40 by ljustici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,12 @@ typedef struct s_data
 void init_data_struct(t_data *data);
 int check_params(int argc, const char **argv, t_data *data);
 void ft_error(t_data data);
-int check_map_file(t_data *data);
+char **get_file_input(t_data *data);
+char	*ft_join_free(char *s1, char *s2);
+int	ft_array_len(char **str);
 
 /**********************************
  ******* DEBUG PARSER FUNCTIONS ***
 *********************************/
+
+void debug_map_content(char **content);

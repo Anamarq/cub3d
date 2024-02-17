@@ -67,6 +67,7 @@ int32_t main(int32_t argc, const char* argv[])
 
 	/******* CUB3D ******/
 	t_data data;
+	char **content;
 
 	init_data_struct(&data);
 	if (check_params(argc, argv, &data) != 0)
@@ -74,12 +75,14 @@ int32_t main(int32_t argc, const char* argv[])
 		ft_error(data);
 		exit(-1);
 	}
-	else if (check_map_file(&data) != 0)
+	content = get_file_input(&data);
+	if (!content)
 	{
 		ft_error(data);
 		close(data.fd);
 		exit(-1);
 	}
+	debug_map_content(content);
 	close(data.fd);
 	/********************/
 

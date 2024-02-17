@@ -6,7 +6,7 @@
 /*   By: ljustici <ljustici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 16:10:50 by ljustici          #+#    #+#             */
-/*   Updated: 2024/02/17 17:48:42 by ljustici         ###   ########.fr       */
+/*   Updated: 2024/02/17 18:42:14 by ljustici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,21 +58,24 @@ int is_file_empty(char *line, t_data *data)
     return (0);
 }
 
-/*int discard_empty_lines(t_data *data)
-{
-    
-}*/
-
-int check_map_file(t_data *data)
+char **get_file_input(t_data *data)
 {
     char *line;
+    char **result;
     
     line = get_next_line(data->fd);
     if (is_file_empty(line, data) == 1)
-        return (1);
+        return (NULL);
     while(line)
     {
-        
+        //tiene caracteres prohibidos?
+        //es espacios o tabs?
+        ft_strtrim(line);
+        //añade a result
+        free(line);
+        line = get_next_line(data->fd);
     }
-    return (0);
+    if (!result)
+        data->error = ERROR_FILE_EMPTY;
+    return (result);
 }
