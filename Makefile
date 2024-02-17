@@ -6,7 +6,7 @@ LIBMLX	= ./MLX42
 
 HEADERS	= -I ./include -I $(LIBMLX)
 LIBS	= -lglfw -L /Users/$(USER)/.brew/opt/glfw/lib/ $(LIBMLX)/libmlx42.a
-SRCS	= cub3d.c
+SRCS	= cub3d.c parser.c parser_error.c
 OBJS	= ${SRCS:.c=.o}
 
 all: libmlx $(NAME)

@@ -8,7 +8,7 @@
 #include <stdbool.h>
 # include "MLX42/include/MLX42/MLX42.h"
 
-#include "cub3d.h"
+#include "cub3d.h" //cub3d
 
 #define WIDTH 512
 #define HEIGHT 512
@@ -62,6 +62,22 @@ int32_t main(int32_t argc, const char* argv[])
 	(void) argc;
 	(void) argv;
 	mlx_t* mlx;
+
+
+
+	/******* CUB3D ******/
+	t_data data;
+
+	init_data_struct(&data);
+	if (check_params(argc, argv, &data) != 0)
+	{
+		ft_error(data);
+		exit;
+	}
+
+	/********************/
+
+
 
 	// Gotta error check this stuff
 	if (!(mlx = mlx_init(WIDTH, HEIGHT, "MLX42", true)))
