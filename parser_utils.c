@@ -6,7 +6,7 @@
 /*   By: ljustici <ljustici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 17:50:20 by ljustici          #+#    #+#             */
-/*   Updated: 2024/02/17 20:45:05 by ljustici         ###   ########.fr       */
+/*   Updated: 2024/02/18 17:52:25 by ljustici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,13 +51,11 @@ int	ft_array_len(char **str)
 	return (i);
 }
 
-int is_invalid_char_in_map(char *line)
+int is_invalid_char_in_map(char *line, size_t n)
 {
 	size_t i;
-	size_t n;
 
 	i = 0;
-	n = ft_strlen(line);
 	while(i < n)
 	{
 		if (line[i] != 32 && line[i] != '0' && line[i] != '1'
@@ -80,6 +78,33 @@ int is_all_spaces(char *line)
 	{
 		if (line[i] != ' ')
 			return (0);
+		i++;
 	}
 	return (1);
+}
+
+void free_struct(t_data *data)
+{
+	if (data->no)
+	{
+		free(data->no);
+		data->no = NULL;
+	}
+	if (data->so)
+	{
+		free(data->so);
+		data->so = NULL;
+	}
+	if (data->we)
+	{
+		free(data->we);
+		data->we = NULL;
+	}
+	if (data->ea)
+	{
+		free(data->ea);
+		data->ea = NULL;
+	}
+	if (data->map)
+		ft_free_array(data->map);
 }

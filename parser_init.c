@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser.c                                           :+:      :+:    :+:   */
+/*   parser_init.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ljustici <ljustici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 16:10:50 by ljustici          #+#    #+#             */
-/*   Updated: 2024/02/17 20:42:14 by ljustici         ###   ########.fr       */
+/*   Updated: 2024/02/18 17:54:52 by ljustici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,37 @@ int is_file_empty(char *line, t_data *data)
     return (0);
 }
 
+int is_line_correct(t_data *data, char *line)
+{
+    int type;
+    
+    //printf("linea: [%s]\n", line);
+    type = is_path_line(line);
+    if (type)
+    {
+        
+        if (!is_path_format(line, type, data))
+            data->error = INVALID_CHAR;
+    }
+    else
+    {
+        type =is_color_line(line);
+        if (type)
+        {
+            if (!is_color_format(line, type, data))
+                data->error = INVALID_CHAR;
+        }
+        else if (!is_all_spaces(line))
+            data->error = INVALID_CHAR;
+    }
+    if (data->error == INVALID_CHAR)
+    {
+        free (line);
+        return (0);
+    }
+    return (1);
+}
+
 char **get_file_input(t_data *data)
 {
     char *input;
@@ -69,10 +100,19 @@ char **get_file_input(t_data *data)
     line = get_next_line(data->fd);
     if (is_file_empty(line, data) == 1)
         return (NULL);
-    while(line)
-    {
+    /** TEXTURE AND COLOR **/
+    while(line && !is_map_start(line, *data))
+    {    
         if (!is_line_correct(data, line))
            break;
+        free(line);
+        line = get_next_line(data->fd);
+    }
+    /** MAP **/
+    while (line)
+    {
+        if (!is_map_line_correct(line, data))
+            break;
         input = ft_join_free(input, line);
         free(line);
         line = get_next_line(data->fd);
@@ -86,5 +126,3 @@ char **get_file_input(t_data *data)
     free(input);
     return (result);
 }
-
-

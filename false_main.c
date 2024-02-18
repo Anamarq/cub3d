@@ -6,7 +6,7 @@
 /*   By: ljustici <ljustici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 18:51:03 by ljustici          #+#    #+#             */
-/*   Updated: 2024/02/17 20:03:28 by ljustici         ###   ########.fr       */
+/*   Updated: 2024/02/18 17:48:36 by ljustici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 int main(int argc, const char **argv)
 {
     t_data data;
-	char **content;
 
 	init_data_struct(&data);
 	if (check_params(argc, argv, &data) != 0)
@@ -23,14 +22,17 @@ int main(int argc, const char **argv)
 		ft_error(data);
 		exit(-1);
 	}
-	content = get_file_input(&data);
+	data.map = get_file_input(&data);
 	if (data.error != NO_ERROR)
 	{
 		ft_error(data);
 		close(data.fd);
+		free_struct(&data);
 		exit(-1);
 	}
-	debug_map_content(content);
+	print_map_content(data.map);
+	print_struct_content(data);
 	close(data.fd);
+	free_struct(&data);
     return (0);
 }

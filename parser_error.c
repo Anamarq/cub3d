@@ -6,7 +6,7 @@
 /*   By: ljustici <ljustici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 16:38:21 by ljustici          #+#    #+#             */
-/*   Updated: 2024/02/17 20:49:00 by ljustici         ###   ########.fr       */
+/*   Updated: 2024/02/18 17:45:19 by ljustici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,25 @@ void ft_error(t_data data)
 }
 
 
-void debug_map_content(char **content)
+void print_map_content(char **content)
 {
     int n = ft_array_len(content);
     int i = 0;
+    printf("/**** MAP CONTENT ****/\n");
     while (i < n)
     {
         printf("linea: [%s]\n",content[i]);
         i++;
     }
+}
+
+void print_struct_content(t_data data)
+{
+    printf("/**** STRUCT CONTENT ****/\n");
+    printf("NO: %s\n", data.no);
+    printf("SO: %s\n", data.so);
+    printf("WE: %s\n", data.we);
+    printf("EA: %s\n", data.ea);
+    printf("F: %i,%i,%i\n", data.floor.r, data.floor.g, data.floor.b);
+    printf("C: %i,%i,%i\n", data.ceiling.r, data.ceiling.g, data.ceiling.b);
 }
