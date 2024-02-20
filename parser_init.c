@@ -6,7 +6,7 @@
 /*   By: ljustici <ljustici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 16:10:50 by ljustici          #+#    #+#             */
-/*   Updated: 2024/02/18 17:54:52 by ljustici         ###   ########.fr       */
+/*   Updated: 2024/02/20 20:24:44 by ljustici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,15 @@ void init_data_struct(t_data *data)
     data->so = NULL;
     data->we = NULL;
     data->ea = NULL;
-    data->floor = (t_color){0,0,0};
-    data->ceiling = (t_color){0,0,0};
+    data->floor = (t_color){-1,-1,-1};
+    data->ceiling = (t_color){-1,-1,-1};
 }
 
-int check_params(int argc, const char **argv, t_data *data)
+int check_params(int argc, char **argv, t_data *data)
 {
     int fd;
+    int n;
+    
     
     if (argc == 1 || argc > 2)
     {
@@ -36,6 +38,12 @@ int check_params(int argc, const char **argv, t_data *data)
     }
     else
     {
+        n = ft_strlen(argv[1]);
+        if (ft_strcmp(&argv[1][n - 4], ".cub") != 0)
+        {
+            data->error = ERROR_FILE;
+            return (1);
+        }
         fd = open(argv[1], O_RDWR);
         if (fd == -1)
         {
@@ -81,8 +89,10 @@ int is_line_correct(t_data *data, char *line)
         else if (!is_all_spaces(line))
             data->error = INVALID_CHAR;
     }
+    
     if (data->error == INVALID_CHAR)
     {
+        printf("linea de error [%s]\n", line);
         free (line);
         return (0);
     }
@@ -102,13 +112,14 @@ char **get_file_input(t_data *data)
         return (NULL);
     /** TEXTURE AND COLOR **/
     while(line && !is_map_start(line, *data))
-    {    
+    {
+        //printf("linea [%s]\n", line);
         if (!is_line_correct(data, line))
            break;
         free(line);
         line = get_next_line(data->fd);
     }
-    /** MAP **/
+    /** SAVE MAP **/
     while (line)
     {
         if (!is_map_line_correct(line, data))

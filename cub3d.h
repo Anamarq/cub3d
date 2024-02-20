@@ -6,7 +6,7 @@
 /*   By: ljustici <ljustici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 15:56:54 by ljustici          #+#    #+#             */
-/*   Updated: 2024/02/18 17:53:56 by ljustici         ###   ########.fr       */
+/*   Updated: 2024/02/20 18:27:24 by ljustici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ typedef struct s_color
 
 typedef struct	s_point
 {
+	
 	int			x;
 	int			y;
 }				t_point;
@@ -66,7 +67,7 @@ typedef struct s_data
 ***********************************/
 
 void init_data_struct(t_data *data);
-int check_params(int argc, const char **argv, t_data *data);
+int check_params(int argc, char **argv, t_data *data);
 void ft_error(t_data data);
 char **get_file_input(t_data *data);
 char	*ft_join_free(char *s1, char *s2);
@@ -82,6 +83,13 @@ int is_map_closed(char **map, char **copy, t_point size, t_point begin);
 void free_struct(t_data *data);
 int is_map_start(char *line, t_data data);
 int is_map_line_correct(char *line, t_data *data);
+t_point find_person(char **map, t_point size);
+void	flood_fill(char **tab, t_point size, t_point begin);
+t_point get_size(char **map);
+char **copy_map(char **map, t_point size);
+int is_f_outside(char **copy, t_point size);
+t_point find_first_zero(char **map, t_point size);
+int is_map_different(char **copy, char **map, t_point size);
 
 /**********************************
  ******* DEBUG PARSER FUNCTIONS ***

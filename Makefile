@@ -7,7 +7,8 @@ LIBMLX	= ./MLX42
 HEADERS	= -I ./include -I $(LIBMLX)
 LIBS	= -lglfw -L /Users/$(USER)/.brew/opt/glfw/lib/ $(LIBMLX)/libmlx42.a
 SRCS	=	cub3d.c parser_init.c parser_error.c parser_utils.c false_main.c \
-			parser_txure_info.c parser_color_info.c parser_map.c
+			parser_txure_info.c parser_color_info.c parser_map.c \
+			parser_map2.c
 OBJS	= ${SRCS:.c=.o}
 
 LIBFT_PATH		= libft/libft.a

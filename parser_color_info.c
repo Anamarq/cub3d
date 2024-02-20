@@ -6,7 +6,7 @@
 /*   By: ljustici <ljustici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 15:27:07 by ljustici          #+#    #+#             */
-/*   Updated: 2024/02/18 17:39:27 by ljustici         ###   ########.fr       */
+/*   Updated: 2024/02/20 20:22:04 by ljustici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ int is_color_format(char *line, int type, t_data *data)
     char **rgb;
     int j;
 
+    //printf("Entra el color format\n");
     rgb = get_rgb_input(line);
     if (!rgb)
         return (0);
@@ -79,9 +80,10 @@ int is_color_format(char *line, int type, t_data *data)
     n = ft_array_len(rgb);
     while(i < n)
     {
+        //printf("atoi [%i]\n", ft_atoi(rgb[i]));
         if (!is_atoible(rgb[i]))
         {
-            printf("no [%s]\n", rgb[i]);
+            printf("no es atoible[%s]\n", rgb[i]);
             return (0);
         }
         if (ft_atoi(rgb[i]) < 0 || ft_atoi(rgb[i]) > 255)
@@ -89,6 +91,9 @@ int is_color_format(char *line, int type, t_data *data)
         i++;
     }
     set_color(rgb, data, type);
+    //printf("hizo setcolor\n");
+    //printf("color guardardo %d\n", data->ceiling.r);
+    ft_free_array(rgb);
     return (1);
 }
 
