@@ -6,7 +6,7 @@
 /*   By: ljustici <ljustici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 16:38:21 by ljustici          #+#    #+#             */
-/*   Updated: 2024/02/19 16:13:47 by ljustici         ###   ########.fr       */
+/*   Updated: 2024/02/23 18:41:22 by ljustici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,7 @@ void ft_error(t_data data)
         write(2, "El archivo está vacío\n", 23);
     else if (data.error == INVALID_CHAR)
         write(2, "El mapa no es válido\n", 21);
-}
-
+}   
 
 void print_map_content(char **content)
 {

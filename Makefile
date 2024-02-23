@@ -1,14 +1,14 @@
 # //= Variables =//
 
 NAME	= cub3d
-CFLAGS	= -Wall -Werror -Wextra
+CFLAGS	= -Wall -Werror -Wextra -g #-fsanitize=address
 LIBMLX	= ./MLX42
 
 HEADERS	= -I ./include -I $(LIBMLX)
 LIBS	= -lglfw -L /Users/$(USER)/.brew/opt/glfw/lib/ $(LIBMLX)/libmlx42.a
 SRCS	=	cub3d.c parser_init.c parser_error.c parser_utils.c false_main.c \
 			parser_txure_info.c parser_color_info.c parser_map.c \
-			parser_map2.c
+			parser_map2.c parser_map3.c
 OBJS	= ${SRCS:.c=.o}
 
 LIBFT_PATH		= libft/libft.a
@@ -22,7 +22,7 @@ libmlx:
 	@$(CC) $(CFLAGS) -o $@ -c $<
 
 $(NAME): $(OBJS) $(LIBFT_PATH)
-	@$(CC) $(OBJS) $(LIBS) $(HEADERS) $(LIBFT_PATH) -o $(NAME)
+	@$(CC) $(CFLAGS) $(OBJS) $(LIBS) $(HEADERS) $(LIBFT_PATH) -o $(NAME)
 
 $(LIBFT_PATH):
 		make -C libft all

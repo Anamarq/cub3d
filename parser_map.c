@@ -6,7 +6,7 @@
 /*   By: ljustici <ljustici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 14:19:33 by ljustici          #+#    #+#             */
-/*   Updated: 2024/02/20 20:24:25 by ljustici         ###   ########.fr       */
+/*   Updated: 2024/02/23 13:43:43 by ljustici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	fill(char **tab, t_point size, t_point cur, char to_fill)
 {
-	if (cur.y < 0 || cur.y >= size.y || cur.x < 0 || cur.x >= size.x
+	if (cur.y < 0 || cur.y >= size.y + 2 || cur.x < 0 || cur.x >= size.x + 2
 		|| (tab[cur.y][cur.x] != to_fill && tab[cur.y][cur.x] != ' '))
 		return;
 	tab[cur.y][cur.x] = 'F';
@@ -27,9 +27,6 @@ void	fill(char **tab, t_point size, t_point cur, char to_fill)
 
 void	flood_fill(char **tab, t_point size, t_point begin)
 {
-	
-	write(2,"aqui\n",5);
-	
 	fill(tab, size, begin, tab[begin.y][begin.x]);
 }
 
