@@ -6,7 +6,7 @@
 /*   By: ljustici <ljustici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 15:56:54 by ljustici          #+#    #+#             */
-/*   Updated: 2024/02/23 18:46:15 by ljustici         ###   ########.fr       */
+/*   Updated: 2024/02/28 15:45:07 by ljustici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,10 @@ typedef enum e_error
 {
 	NO_ERROR,
 	ERROR_ARGMTS,
+	ERROR_FILE_TYPE,
 	ERROR_FILE,
     ERROR_FILE_EMPTY,
+	INVALID_CHAR_IN_LINES,
 	ERROR_NO_PATHS,
 	ERROR_MALLOC_ERROR,
 	INVALID_CHAR,
@@ -57,10 +59,9 @@ typedef struct s_data
     t_color             floor;
     t_color             ceiling;
 	char**				map;
+	int					x;
+	int					y;
 }						t_data;
-
-#endif
-
 
 /***********************************
  ****** PARSER FUNCTIONS ***********
@@ -69,6 +70,7 @@ typedef struct s_data
 void init_data_struct(t_data *data);
 int check_params(int argc, char **argv, t_data *data);
 void ft_error(t_data data);
+void ft_error_file_content(t_data *data);
 char **get_file_input(t_data *data);
 char	*ft_join_free(char *s1, char *s2);
 int	ft_array_len(char **str);
@@ -97,3 +99,5 @@ int is_map_correct(t_data *data, t_point size);
 
 void print_map_content(char **content);
 void print_struct_content(t_data data);
+
+#endif

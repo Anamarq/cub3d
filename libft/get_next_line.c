@@ -6,7 +6,7 @@
 /*   By: ljustici <ljustici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 18:25:13 by ljustici          #+#    #+#             */
-/*   Updated: 2024/02/17 17:19:13 by ljustici         ###   ########.fr       */
+/*   Updated: 2024/02/28 14:41:15 by ljustici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ char	*set_after_nl(char *has_nl)
 	}
 	after_nl = (char *)malloc((ft_strlen(has_nl) - i + 1) * sizeof(char));
 	if (!after_nl)
-		return (NULL);
+		return (free(has_nl), NULL);
 	i++;
 	n = 0;
 	while (has_nl[i])
@@ -62,6 +62,33 @@ char	*get_before_nl(char *has_nl)
 	return (before_nl);
 }
 
+char	*ft_join_ffree(char *s1, char *s2)
+{
+	char	*s;
+	int		i;
+	int		j;
+
+	if (!s1 && !s2)
+		return (NULL);
+	s = ft_calloc(ft_strlen(s1) + ft_strlen(s2) + 1, sizeof(*s));
+	if (!s)
+		return (NULL);
+	i = 0;
+	j = -1;
+	if (s1)
+	{
+		while (s1[i])
+		{
+			s[i] = s1[i];
+			i++;
+		}
+		free(s1);
+	}
+	while (s2[++j])
+		s[i++] = s2[j];
+	return (s);
+}
+
 char	*get_buffer(int fd, char *has_nl)
 {
 	ssize_t	n_read_bytes;
@@ -80,7 +107,7 @@ char	*get_buffer(int fd, char *has_nl)
 			return (NULL);
 		}
 		buffer[n_read_bytes] = '\0';
-		has_nl = ft_strjoin(has_nl, buffer);
+		has_nl = ft_join_ffree(has_nl, buffer);
 	}
 	free(buffer);
 	return (has_nl);
@@ -95,7 +122,7 @@ char	*get_next_line(int fd)
 		return (NULL);
 	has_nl = get_buffer(fd, has_nl);
 	if (!has_nl)
-		return (NULL);
+		return(NULL);
 	line = get_before_nl(has_nl);
 	has_nl = set_after_nl(has_nl);
 	return (line);

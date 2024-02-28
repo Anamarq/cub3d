@@ -6,7 +6,7 @@
 /*   By: ljustici <ljustici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 18:14:03 by ljustici          #+#    #+#             */
-/*   Updated: 2024/02/23 18:52:04 by ljustici         ###   ########.fr       */
+/*   Updated: 2024/02/26 14:00:51 by ljustici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,13 +117,15 @@ int is_map_different(char **copy, char **map, t_point size)
 			return(1);
 		j++;
 	}
-	i = 1;
+	i = 0;
 	while (i < size.y)
 	{
 		j = 0;
-		while(j < size.x)
+		while(j < size.x + 2)
 		{
-			if (map[i][j] == ' ' && copy[i + 1][j + 1] == 'F')
+			if (j >= (int)ft_strlen(map[i]) && copy[i + 1][j + 1] == 'F')
+				return (1);
+			else if (j < (int)ft_strlen(map[i]) && map[i][j] == ' ' && copy[i + 1][j + 1] == 'F')
 				return (1);
 			j++;
 		}

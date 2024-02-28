@@ -6,7 +6,7 @@
 /*   By: ljustici <ljustici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 17:50:20 by ljustici          #+#    #+#             */
-/*   Updated: 2024/02/18 18:26:05 by ljustici         ###   ########.fr       */
+/*   Updated: 2024/02/26 14:41:13 by ljustici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int is_invalid_char_in_map(char *line, size_t n)
 			&& line[i] != 'N' && line[i] != 'E' && line[i] != 'S'
 			&& line[i] != 'W' && line[i] != '\n')
 			{
-				printf("error en caracter [%c]", line[i]);
+				printf("error en caracter [%c] pos %zu\n", line[i], i);
 				return(1);
 			}
 		i++;

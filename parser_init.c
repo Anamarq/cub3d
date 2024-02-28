@@ -6,7 +6,7 @@
 /*   By: ljustici <ljustici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 16:10:50 by ljustici          #+#    #+#             */
-/*   Updated: 2024/02/20 20:24:44 by ljustici         ###   ########.fr       */
+/*   Updated: 2024/02/28 13:42:49 by ljustici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,7 @@ void init_data_struct(t_data *data)
 
 int check_params(int argc, char **argv, t_data *data)
 {
-    int fd;
     int n;
-    
     
     if (argc == 1 || argc > 2)
     {
@@ -41,17 +39,17 @@ int check_params(int argc, char **argv, t_data *data)
         n = ft_strlen(argv[1]);
         if (ft_strcmp(&argv[1][n - 4], ".cub") != 0)
         {
-            data->error = ERROR_FILE;
+            data->error = ERROR_FILE_TYPE;
             return (1);
         }
-        fd = open(argv[1], O_RDWR);
-        if (fd == -1)
+        data->fd = open(argv[1], O_RDWR);
+        if (data->fd == -1)
         {
             data->error = ERROR_FILE;
             return (1);
         }
-        else
-            data->fd = fd;
+        //else
+        //    data->fd = fd;
     }
     return (0);
 }
@@ -70,29 +68,25 @@ int is_line_correct(t_data *data, char *line)
 {
     int type;
     
-    //printf("linea: [%s]\n", line);
     type = is_path_line(line);
     if (type)
-    {
-        
+    {   
         if (!is_path_format(line, type, data))
-            data->error = INVALID_CHAR;
+            data->error = INVALID_CHAR_IN_LINES;
     }
     else
     {
-        type =is_color_line(line);
+        type = is_color_line(line);
         if (type)
         {
             if (!is_color_format(line, type, data))
-                data->error = INVALID_CHAR;
+                data->error = INVALID_CHAR_IN_LINES;
         }
         else if (!is_all_spaces(line))
-            data->error = INVALID_CHAR;
+            data->error = INVALID_CHAR_IN_LINES;
     }
-    
-    if (data->error == INVALID_CHAR)
+    if (data->error != NO_ERROR)
     {
-        printf("linea de error [%s]\n", line);
         free (line);
         return (0);
     }
@@ -115,7 +109,7 @@ char **get_file_input(t_data *data)
     {
         //printf("linea [%s]\n", line);
         if (!is_line_correct(data, line))
-           break;
+            return (NULL);
         free(line);
         line = get_next_line(data->fd);
     }
@@ -123,7 +117,7 @@ char **get_file_input(t_data *data)
     while (line)
     {
         if (!is_map_line_correct(line, data))
-            break;
+            return (NULL);
         input = ft_join_free(input, line);
         free(line);
         line = get_next_line(data->fd);
@@ -132,8 +126,13 @@ char **get_file_input(t_data *data)
     {
         result = ft_split(input, '\n');
         if (!result)
+        {
+            free(line);
+            free(input);
             data->error = ERROR_FILE_EMPTY;
+        }
     }
+    free(line);
     free(input);
     return (result);
 }

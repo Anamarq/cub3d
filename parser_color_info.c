@@ -6,7 +6,7 @@
 /*   By: ljustici <ljustici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 15:27:07 by ljustici          #+#    #+#             */
-/*   Updated: 2024/02/20 20:22:04 by ljustici         ###   ########.fr       */
+/*   Updated: 2024/02/28 13:31:53 by ljustici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ static char** get_rgb_input(char *line)
     n = ft_array_len(rgb);
     if (n == 3)
         return (rgb);
+    free(rgb);
     return (NULL);
 }
 
@@ -105,4 +106,3 @@ int is_color_line(char *line)
         return (2);
     return (0); 
 }
-

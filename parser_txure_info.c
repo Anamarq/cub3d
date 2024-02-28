@@ -6,7 +6,7 @@
 /*   By: ljustici <ljustici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 20:39:05 by ljustici          #+#    #+#             */
-/*   Updated: 2024/02/18 17:46:12 by ljustici         ###   ########.fr       */
+/*   Updated: 2024/02/26 15:45:43 by ljustici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,10 +55,11 @@ int is_path_format(char *line, int type, t_data *data)
     fd = open(file, O_RDONLY);
     if (fd == -1)
     {
-        printf("no abre archivo %d\n", errno);
+        free(file);
         return (0);
     }
     close(fd);
+    free(file);
     set_type(type, &line[i], data);
     return(1);
 }

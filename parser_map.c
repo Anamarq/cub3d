@@ -6,7 +6,7 @@
 /*   By: ljustici <ljustici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 14:19:33 by ljustici          #+#    #+#             */
-/*   Updated: 2024/02/23 13:43:43 by ljustici         ###   ########.fr       */
+/*   Updated: 2024/02/26 21:11:10 by ljustici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,9 +61,9 @@ int is_map_line_correct(char *line, t_data *data)
 	{
 		if (is_invalid_char_in_map(line, n))
 		{
-			data->error = INVALID_CHAR;
-			printf("Es aquí en linea [%s]\n", line);
-			free(line); //probablemente no está liberando
+			data->error = INVALID_CHAR_IN_LINES;
+			//printf("Es aquí en linea [%s]\n", line);
+			free(line);
 			return (0);
 		}
 		i++;
@@ -100,16 +100,17 @@ t_point get_size(char **map)
 t_point find_person(char **map, t_point size)
 {
 	int i;
-	int j;
+	size_t j;
 	int found;
 	t_point person;
 	
+	person = (t_point){-1, -1};
 	found = 0;
 	i = 0;
 	while (i < size.y)
 	{
 		j = 0;
-		while(j < size.x)
+		while(j < ft_strlen(map[i]))
 		{
 			if ((map[i][j] == 'N' || map[i][j] == 'S' || map[i][j] == 'W'
 				|| map[i][j] == 'E') && !found)
