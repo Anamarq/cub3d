@@ -6,7 +6,7 @@
 /*   By: ljustici <ljustici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 18:51:03 by ljustici          #+#    #+#             */
-/*   Updated: 2024/03/05 16:57:46 by ljustici         ###   ########.fr       */
+/*   Updated: 2024/03/05 19:24:00 by ljustici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,6 @@ int	parser(int argc, char **argv, t_data *data)
 	if (data->error != NO_ERROR)
 		end_and_free_program(data);
 	size = get_size(data->map, ft_array_len(data->map));
-	data->x = size.x;
-	data->y = size.y;
 	player = find_person(data->map, size);
 	if (player.x == -1 && player.y == -1)
 	{
@@ -42,7 +40,9 @@ int	parser(int argc, char **argv, t_data *data)
 	}
 	if (!is_map_correct(data, size))
 		ft_error_file_content(data);
+	size = get_size(data->map, ft_array_len(data->map));
+	data->x = size.x;
+	data->y = size.y;
 	close(data->fd);
-
 	return (0);
 }
