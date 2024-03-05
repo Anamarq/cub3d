@@ -6,7 +6,7 @@
 /*   By: ljustici <ljustici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 15:56:54 by ljustici          #+#    #+#             */
-/*   Updated: 2024/02/28 15:45:07 by ljustici         ###   ########.fr       */
+/*   Updated: 2024/03/05 13:53:30 by ljustici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ typedef enum e_error
 	ERROR_NO_PATHS,
 	ERROR_MALLOC_ERROR,
 	INVALID_CHAR,
+	EMPTY_LINE_IN_MAP,
 	END = 99,
 }	t_error;
 
@@ -86,12 +87,13 @@ int is_map_start(char *line, t_data data);
 int is_map_line_correct(char *line, t_data *data);
 t_point find_person(char **map, t_point size);
 void	flood_fill(char **tab, t_point size, t_point begin);
-t_point get_size(char **map);
+t_point get_size(char **map, int len);
 char **copy_map(char **map, t_point size);
 char **copy_and_encase_map(char **map, t_point size);
 t_point find_first_zero(char **map, t_point size);
 int is_map_different(char **copy, char **map, t_point size);
 int is_map_correct(t_data *data, t_point size);
+int	is_file_empty(char *line, t_data *data);
 
 /**********************************
  ******* DEBUG PARSER FUNCTIONS ***

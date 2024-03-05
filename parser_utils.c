@@ -6,7 +6,7 @@
 /*   By: ljustici <ljustici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 17:50:20 by ljustici          #+#    #+#             */
-/*   Updated: 2024/02/26 14:41:13 by ljustici         ###   ########.fr       */
+/*   Updated: 2024/03/05 13:29:37 by ljustici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,33 +51,33 @@ int	ft_array_len(char **str)
 	return (i);
 }
 
-int is_invalid_char_in_map(char *line, size_t n)
+int	is_invalid_char_in_map(char *line, size_t n)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
-	while(i < n)
+	while (i < n)
 	{
 		if (line[i] != 32 && line[i] != '0' && line[i] != '1'
 			&& line[i] != 'N' && line[i] != 'E' && line[i] != 'S'
 			&& line[i] != 'W' && line[i] != '\n')
-			{
-				printf("error en caracter [%c] pos %zu\n", line[i], i);
-				return(1);
-			}
+		{
+			printf("error en caracter [%c] pos %zu\n", line[i], i);
+			return (1);
+		}
 		i++;
 	}
 	return (0);
 }
 
-int is_all_spaces(char *line)
+int	is_all_spaces(char *line)
 {
-	size_t i;
-	size_t n;
+	size_t	i;
+	size_t	n;
 
 	i = 0;
 	n = ft_strlen(line);
-	while(i < n && line[i] != '\n')
+	while (i < n && line[i] != '\n')
 	{
 		if (line[i] != ' ')
 			return (0);
@@ -86,7 +86,7 @@ int is_all_spaces(char *line)
 	return (1);
 }
 
-void free_struct(t_data *data)
+void	free_struct(t_data *data)
 {
 	if (data->no)
 	{
