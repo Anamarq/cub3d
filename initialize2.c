@@ -49,7 +49,7 @@ void	set_player(t_scene_data *sd)
 	}
 }
 
-////Inicializar ventana
+////Initialize window
 void	set_graphics(t_scene_data *sd, t_data data)
 {
 	set_player(sd);

@@ -11,10 +11,11 @@
 /* ************************************************************************** */
 #include "cub3d.h"
 
-//XIntercept es la siguiente x horiz
-//Bucle para buscar punto de colision. Mientras no haya un choque
-//tile_x, y Obtenemos la casilla redondeando por abajo
-//Si hay colision se asigna wallHitX Si no, avanzamos a la siguiente casilla
+//XIntercept is the following x horiz
+//Loop to search for collision point. As long as there is no crash
+//tile_x, and We obtain the square by rounding down
+//If there is a collision, wallHitX is assigned.
+// If not, we advance to the next box
 int	loop_colision_horiz(t_colision_data col_data, t_ray_data *ray,
 		t_scene_data *sd)
 {
@@ -45,16 +46,17 @@ int	loop_colision_horiz(t_colision_data col_data, t_ray_data *ray,
 	return (0);
 }
 
-//y_intercept Buscar primera interseccion. y2
-//Si apunta hacia abajo incrementamos un tile
-//La y del triangulo que se forma dif entre y2 - y1. xady=(y2-y1)/tan(angulo)
-//adyacente = (yIntercept - sd->ray->y) / tan(sd->ray->ray_angle);
-//y step, s xtep: Calculamos distancia de cada paso, tile
-//Si vamos hacia arriba, invertir paso Y
-//Comprobamos que el paso x es coherente
-//Si va a la izquierda no puede ser mayor que 0
-//Si apunta hacia arriba, resto un pixel para forzar la colision con
-//la casilla, sino falsa colision
+//y_intercept Find first intersection. y2
+//If it points down we increment a tile
+//The y of the triangle that is formed dif between y2 - y1.
+//xady=(y2-y1)/tan(angle)
+//adjacent = (yIntercept - sd->ray->y) / tan(sd->ray->ray_angle);
+//y step, s xtep: We calculate the distance of each step, tile
+//If we go up, reverse step Y
+//We check that step x is coherent
+//If it goes to the left it cannot be greater than 0
+//If it points up, I subtract one pixel to force the collision with
+//the box, if not, there is a false collision
 int	horizontal_colision(int down, int left, t_ray_data *ray, t_scene_data *sd)
 {
 	t_colision_data	col_data;
@@ -79,10 +81,10 @@ int	horizontal_colision(int down, int left, t_ray_data *ray, t_scene_data *sd)
 	return (loop_colision_horiz(col_data, ray, sd));
 }
 
-//XIntercept es la siguiente x vert
-//Bucle para buscar punto de colision. Mientras no haya un choque
-//tile_x, y Obtenemos la casilla redondeando por abajo
-//Si hay colision se asigna wallHitX Si no, avanzamos a la siguiente casilla
+//XIntercept is the following x vert
+//Loop to search for collision point. As long as there is no crash
+//tile_x, and We obtain the square by rounding down
+//If there is a collision, wallHitX is assigned. If not, we advance to the next box
 int	loop_colision_vert(t_colision_data col_data, t_ray_data *ray,
 	t_scene_data *sd)
 {
@@ -113,16 +115,16 @@ int	loop_colision_vert(t_colision_data col_data, t_ray_data *ray,
 	return (0);
 }
 
-//x_intercept Buscar primera interseccion. x2
-//Si apunta hacia derecha incrementamos un tile
-//se suma el cateto opuesto
-//double opuesto = (col_data.x_intercept - sd->ray->x) * tan(sd->ray->ray_angle)
-//y step, s xtep: Calculamos distancia de cada paso, tile
-//Si vamos hacia izq, invertir paso x
-//Comprobamos que el paso y es coherente
-//Si va a la arriba no puede ser mayor que 0
-//Si apunta hacia izq, resto un pixel para forzar
-//la colision con la casilla, sino falsa colision
+//x_intercept Find first intersection. x2
+//If it points to the right we increment a tile
+//add the opposite leg
+//double opposite=(col_data.x_intercept - sd->ray->x) * tan(sd->ray->ray_angle)
+//y step, s xtep: We calculate the distance of each step, tile
+//If we go left, reverse step x
+//We check that step y is coherent
+//If it goes to the top it cannot be greater than 0
+//If it points to the left, I subtract one pixel to force
+//the collision with the box, if not, there is a false collision
 int	vertical_colision(int down, int left, t_ray_data *ray, t_scene_data *sd)
 {
 	t_colision_data	col_data;

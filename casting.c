@@ -12,8 +12,8 @@
 
 #include "cub3d.h"
 
-//choque vertical, se coge x y vertical y distancia vertical.
-//se determina si la direccion rayo es dch o izq para ver q textura poner
+//vertical collision, take x y vertical and vertical distance.
+// determine if the ray direction is right or left to see what texture to put
 void	set_ray_property_vert(t_ray_data *ray, double dist, int left)
 {
 	int	casilla;
@@ -29,9 +29,9 @@ void	set_ray_property_vert(t_ray_data *ray, double dist, int left)
 		ray->direction = 0;
 }
 
-//dist distancia a la que está
-//choque horizontal, se coge x y horiz y distancia horiz.
-//se determina si la direccion rayo es arriba o abajo para ver q textura poner
+//dist distance
+//horizontal collision, take x and horiz and horizontal distance.
+// determine if the ray direction is up or down to see what texture to put
 void	set_ray_property_horiz(t_ray_data *ray, double dist, int down)
 {
 	int	casilla;
@@ -47,10 +47,11 @@ void	set_ray_property_horiz(t_ray_data *ray, double dist, int down)
 		ray->direction = 2;
 }
 
-//n es el numero de rayo
-//Averiguamos direccion en que se mueve el rayo
-//Sabe si esta abajo o izq segun el angulo
-//Ver si es menor la distanxia horiz o vert,para determinar si hay choque h o v
+//n is the ray number
+//We find out the direction in which the ray moves
+//Knows if it is down or left depending on the angle
+//See if the horizontal or vertical distance is less, to determine
+// if there is h or v shock
 void	cast(t_ray_data *ray, t_scene_data *sd)
 {
 	int		down;

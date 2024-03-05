@@ -25,8 +25,8 @@ double	degrees_to_radians(double angle)
 	return (angle);
 }
 
-//como hacer angle = angle % (2 * PI);
-// Si el ángulo es negativo, se le suma una vuelta completa
+//how to do angle = angle % (2 * PI);
+// If the angle is negative, a complete turn is added
 double	normalize_angle(double angle)
 {
 	angle = fmod(angle, 2 * M_PI);

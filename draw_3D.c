@@ -12,13 +12,13 @@
 
 #include "cub3d.h"
 
-//Devuelve el color en formato int32_t
+//Returns the color in int32_t format
 int32_t	ft_pixel(int32_t r, int32_t g, int32_t b, int32_t a)
 {
 	return (r << 24 | g << 16 | b << 8 | a);
 }
 
-//Crea una imagen a partir de una textura
+//Create an image from a texture
 mlx_image_t	*create_img(mlx_t *mlx, char *route)
 {
 	mlx_texture_t	*texture;
@@ -34,7 +34,7 @@ mlx_image_t	*create_img(mlx_t *mlx, char *route)
 	return (img);
 }
 
-//crea las imagenes de textura y las guarda em el struct
+//creates the texture images and saves them in the struct
 void	create_walls(t_scene_data *sd, t_data data)
 {
 	sd->walls.tx_right = create_img(sd->mlx, data.ea);
@@ -51,7 +51,7 @@ void	create_walls(t_scene_data *sd, t_data data)
 		error(sd->mlx);
 }
 
-//Dibuja el cielo y el suelo
+//draw sky and floor
 //skc sky color, fc floor color
 void	draw_background(t_color skc, t_color fc, mlx_t *mlx)
 {
@@ -82,7 +82,7 @@ void	draw_background(t_color skc, t_color fc, mlx_t *mlx)
 		error(mlx);
 }
 
-//Dibuja la escena 3D
+//draw 3D scene
 void	draw_3d(t_scene_data *scene_data)
 {
 	scene_data->scene = mlx_new_image(scene_data->mlx, WIDTH, HEIGHT);

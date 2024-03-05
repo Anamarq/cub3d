@@ -71,6 +71,12 @@ typedef struct s_data
 	int				y;
 }					t_data;
 
+//Player data
+// x-> position in x
+// y-> position in y
+//rot_angle->Angle where you look in radians, when looking to the right it is 0
+//move_step-> player speed
+//rot_step-> the degrees that will rotate when I press
 typedef struct s_player_data
 {
 	double			x;
@@ -81,6 +87,18 @@ typedef struct s_player_data
 
 }					t_player_data;
 
+//Lightning data
+// x-> position in x
+// y-> position in y
+// ray_angle-> Ray angle
+//step_angle-> What should be incremented between each ray
+//column-> Column where the ray points and will draw the line
+//distance-> distance to the wall that the ray hits
+//pixel_texturex-> pixel taken from the texture you are going to use, in x
+//direction-> direction of the ray on the map, to know which texture to use:
+//right 0, left 1, up 2, down 3
+//wall_hits-> Point where it collides.
+//The collision can be horizontal or vertical
 typedef struct s_ray_data
 {
 	double			x;
@@ -99,6 +117,7 @@ typedef struct s_ray_data
 	int				wall_hit_y_vert;
 }					t_ray_data;
 
+//Textures for walls
 typedef struct s_walls
 {
 	mlx_image_t		*tx_right;
@@ -117,6 +136,14 @@ typedef struct s_colision_data
 }					t_colision_data;
 
 //render.c
+//plane_distance; Distance to plane
+//hight_wall; top of the wall
+//y0; beginning of the line that draws the wall
+//y1; end of the line drawn by the wall
+//x; column in which the wall line is drawn
+//y0aux; real y0 (it goes off the screen) to calculate the tx pixel and
+//y1aux;y1 real (exits the screen) to calculate the pixel tx y
+//py; pixel texture and
 typedef struct s_render_data
 {
 	double			plane_distance;
@@ -129,6 +156,16 @@ typedef struct s_render_data
 	int				py;
 }					t_render_data;
 
+//General data:
+//data-> parse data
+//character->2D character
+//mlx->window
+//ply-> player data
+//end-> graphic representation of the end of each ray, the collision point
+//ray->ray data
+//scene-> scene where each line is drawn and seen in 3D
+//walls->walls texture
+//map-> copy of the parse map
 typedef struct s_scene_data
 {
 	int				altom;

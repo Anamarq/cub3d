@@ -12,7 +12,7 @@
 
 #include "cub3d.h"
 
-//Calcula la nueva x o nueva y según donde se pulse
+//Calculates the new x or new y depending on where you click
 void	calculate_new_coordinates(double *newx, double *newy, t_scene_data *sd)
 {
 	if (mlx_is_key_down(sd->mlx, MLX_KEY_W))
@@ -41,9 +41,9 @@ void	calculate_new_coordinates(double *newx, double *newy, t_scene_data *sd)
 	}
 }
 
-//actualiza el angulo de rotacion
-//si no choca se actualiza
-//por ultimo se calculan los rayos (inicio de raycasting)
+//update the rotation angle
+//if it does not collide it is updated
+//finally the rays are calculated (start of raycasting)
 void	ft_hook(void *param)
 {
 	t_scene_data	*sd;

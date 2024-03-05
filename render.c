@@ -12,9 +12,9 @@
 
 #include "cub3d.h"
 
-// Calcula el índice del píxel en el buffer de píxeles
-// Se multiplica por 4 para tener en cuenta los 4 bytes por píxel (RGBA)
-//Accede al buffer de píxeles y combina los valores de RGBA en un solo uint32_t
+// Calculate the index of the pixel in the pixel buffer
+// Multiplied by 4 to take into account the 4 bytes per pixel (RGBA)
+//Access the pixel buffer and combine the RGBA values ​​into a single uint32_t
 uint32_t	get_pixel_color(int x, int y, mlx_image_t *tx)
 {
 	int			index;
@@ -26,7 +26,7 @@ uint32_t	get_pixel_color(int x, int y, mlx_image_t *tx)
 	return (color);
 }
 
-//elige la textura segun la direccion
+//choose the texture according to the direction
 mlx_image_t	*choose_tx(t_scene_data *sd, int n)
 {
 	if (n == 0)
@@ -40,13 +40,13 @@ mlx_image_t	*choose_tx(t_scene_data *sd, int n)
 	return (NULL);
 }
 
-//y0, y1 Calculamos donde empieza y acaba la línea
-//y0 mitad pantalla - mitad muro
-//y1 donde acaba
-//la y0aux, y1aux es para la línea real, que se sale de la pantalla.
-//la y0, y1 es la línea que se dibuja, que se limita para que no de segfault
-//en el bucle se hace una regla de 3 para elegir el pixel de textura y.
-//el bucle dibuja la linea
+//y0, y1 We calculate where the line begins and ends
+//y0 half screen - half wall
+//y1 where it ends
+//the y0aux, y1aux is for the actual line, which goes off the screen.
+//y0,y1 is the line that is drawn,which is limited so that it doesnt segfault
+//in the loop a rule of 3 is made to choose the texture pixel and.
+//the loop draws the line
 void	render_wall(t_scene_data *sd, t_ray_data ray)
 {
 	t_render_data	rd;
@@ -75,8 +75,8 @@ void	render_wall(t_scene_data *sd, t_ray_data ray)
 	}
 }
 
-// Establecer el píxel en negro
-//es necesario para actualizar la imagen, como limpiar el buffer
+// Set the pixel to black
+//is necessary to update the image, how to clear the buffer
 void	clear_screen(mlx_image_t *scene)
 {
 	int	x;
@@ -96,10 +96,10 @@ void	clear_screen(mlx_image_t *scene)
 	}
 }
 
-//para cada rayo:
-//se calcula el angulo actual
-//tras el cast: Correccion ojo de pez
-//se calcula donde se dibuja el end en el minimapa
+//for each ray:
+//the current angle is calculated
+//after the cast: Fisheye correction
+//calculate where the end is drawn on the minimap
 void	calculate_ray(t_scene_data *sd)
 {
 	int	xdest;

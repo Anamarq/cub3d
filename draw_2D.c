@@ -33,7 +33,7 @@ void	draw_map2d2(t_scene_data *sd, mlx_image_t *tile)
 	}
 }
 
-//minimapa
+//minimap
 void	draw_map2d(t_scene_data *sd)
 {
 	mlx_image_t	*tile;
@@ -58,7 +58,7 @@ void	draw_map2d(t_scene_data *sd)
 	draw_map2d2(sd, tile);
 }
 
-//dibuja el personaje 2D en el minimapa
+//draw 2d character in minimap
 void	draw_character2d(t_scene_data *sd)
 {
 	uint32_t	x;
@@ -84,7 +84,7 @@ void	draw_character2d(t_scene_data *sd)
 		error(sd->mlx);
 }
 
-//dibuja el punto de colision de cada rayo
+//draw the collision point of each ray
 void	draw_end(t_scene_data *scene_data)
 {
 	uint32_t	x;

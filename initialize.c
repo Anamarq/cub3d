@@ -12,8 +12,8 @@
 
 #include "cub3d.h"
 
-//step_angle Dice cuanto se incrementa cada rayo
-//con ray_angle Empiezo en el laterai izq
+//step_angle Tells how much each ray increases
+//with ray_angle I start on the left side
 void	initialize_ray(t_scene_data *sd)
 {
 	double	step_angle;
