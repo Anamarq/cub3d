@@ -6,7 +6,7 @@
 /*   By: ljustici <ljustici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 20:39:05 by ljustici          #+#    #+#             */
-/*   Updated: 2024/03/04 19:41:57 by ljustici         ###   ########.fr       */
+/*   Updated: 2024/03/05 19:18:12 by ljustici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int	is_path_format(char *line, int type, t_data *data)
 		return (0);
 	}
 	close(fd);
+	set_type(type, file, data);
 	free(file);
-	set_type(type, &line[i], data);
 	return (1);
 }
