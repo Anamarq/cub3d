@@ -6,7 +6,7 @@
 /*   By: ljustici <ljustici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 16:38:21 by ljustici          #+#    #+#             */
-/*   Updated: 2024/03/05 14:16:13 by ljustici         ###   ########.fr       */
+/*   Updated: 2024/03/05 15:07:47 by ljustici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,26 +16,26 @@ void	ft_error(t_data data)
 {
 	write(2, "Error\n", 6);
 	if (data.error == ERROR_ARGMTS)
-		write(2, "El número de argumentos no es correcto\n", 39);
+		write(2, "Number of arguments is incorrect\n", 39);
 	else if (data.error == ERROR_FILE_TYPE)
-		write(2, "El tipo de archivo no se permite\n", 33);
+		write(2, "File type is not allowed\n", 33);
 	else if (data.error == ERROR_FILE)
 	{
-		write(2, "El archivo no existe o está corrupto\n", 37);
+		write(2, "File does not exist or is corrupt\n", 37);
 		close(data.fd);
 	}
 	else if (data.error == ERROR_FILE_EMPTY)
 	{
-		write(2, "El archivo está vacío\n", 23);
+		write(2, "File is empty\n", 23);
 		close(data.fd);
 	}
 	else if (data.error == INVALID_CHAR_IN_LINES)
 	{
-		write(2, "Carácter no válido\n", 20);
+		write(2, "Invalid character\n", 20);
 		close(data.fd);
 	}
 	else if (data.error == EMPTY_LINE_IN_MAP)
-		write(2, "Línea vacía dentro del mapa\n", 29);
+		write(2, "Empty line in map\n", 29);
 	exit(1);
 }
 
@@ -43,7 +43,7 @@ void	ft_error_file_content(t_data *data)
 {
 	write(2, "Error\n", 6);
 	if (data->error == INVALID_CHAR)
-		write(2, "El mapa no es válido\n", 21);
+		write(2, "Map is not valid\n", 21);
 	close(data->fd);
 	free_struct(data);
 	exit(1);
