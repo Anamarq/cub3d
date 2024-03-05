@@ -6,7 +6,7 @@
 /*   By: ljustici <ljustici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 18:25:13 by ljustici          #+#    #+#             */
-/*   Updated: 2024/02/28 14:41:15 by ljustici         ###   ########.fr       */
+/*   Updated: 2024/03/05 16:16:25 by ljustici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,7 +122,7 @@ char	*get_next_line(int fd)
 		return (NULL);
 	has_nl = get_buffer(fd, has_nl);
 	if (!has_nl)
-		return(NULL);
+		return (NULL);
 	line = get_before_nl(has_nl);
 	has_nl = set_after_nl(has_nl);
 	return (line);
