@@ -200,8 +200,8 @@ double				distance_between_points(double x1, double y1, double x2,
 						double y2);
 
 //colisions & ray casting
-int					scene_colision(char **matriz, int x, int y);
-int					player_colision(char **matrix, double x, double y);
+int					scene_colision(t_scene_data *sd, int x, int y);
+int					player_colision(t_scene_data *sd, double x, double y);
 
 int					horizontal_colision(int down, int left, t_ray_data *ray,
 						t_scene_data *sd);

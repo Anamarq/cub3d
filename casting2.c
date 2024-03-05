@@ -30,7 +30,7 @@ int	loop_colision_horiz(t_colision_data col_data, t_ray_data *ray,
 	{
 		tile_x = (int)(next_x / TILE);
 		tile_y = (int)(next_y / TILE);
-		if (scene_colision(sd->map, tile_x, tile_y))
+		if (scene_colision(sd, tile_x, tile_y))
 		{
 			ray->wall_hit_x_horiz = next_x;
 			ray->wall_hit_y_horiz = next_y;
@@ -98,7 +98,7 @@ int	loop_colision_vert(t_colision_data col_data, t_ray_data *ray,
 	{
 		tile_x = (int)(next_x / TILE);
 		tile_y = (int)(next_y / TILE);
-		if (scene_colision(sd->map, tile_x, tile_y))
+		if (scene_colision(sd, tile_x, tile_y))
 		{
 			ray->wall_hit_x_vert = next_x;
 			ray->wall_hit_y_vert = next_y;

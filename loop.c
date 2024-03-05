@@ -60,7 +60,7 @@ void	ft_hook(void *param)
 		sd->ply->rot_angle -= sd->ply->rot_step;
 	if (mlx_is_key_down(sd->mlx, MLX_KEY_RIGHT))
 		sd->ply->rot_angle += sd->ply->rot_step;
-	if (!player_colision(sd->map, newx, newy))
+	if (!player_colision(sd, newx, newy))
 	{
 		sd->character->instances[0].x = newx / (TILE / 10);
 		sd->ply->x = newx;

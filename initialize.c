@@ -75,6 +75,7 @@ void	initialize_data(t_scene_data *scene_data, t_data parse_data)
 {
 	scene_data->altom = parse_data.y;
 	scene_data->anchom = parse_data.x;
+	printf("Ancho: %i, alto: %i\n", scene_data->anchom, scene_data->altom);
 	scene_data->character = NULL;
 	scene_data->ply = malloc(sizeof(t_player_data));
 	if (scene_data->ply == NULL)

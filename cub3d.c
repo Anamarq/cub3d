@@ -29,7 +29,8 @@ int32_t main(int32_t argc, char* argv[])
 
 	t_scene_data sd; //PONER
 	parser(argc, argv, &data);
-	printf("Aqui\n");
+
+	print_map_content(data.map);
 	initialize_data(&sd, data); //PONER
 	
 	set_graphics(&sd, data); //PONER

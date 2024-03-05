@@ -1,11 +1,10 @@
 F 0,0,0
 
 
-NO texture
-SO texture
-WE texture
-
-EA     texture
+NO ./sprites/wall1.png
+SO ./sprites/wall2.png
+WE ./sprites/wall3.png
+EA ./sprites/wall4.png
 
 C 45, 34, 54
 

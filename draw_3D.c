@@ -37,19 +37,15 @@ mlx_image_t	*create_img(mlx_t *mlx, char *route)
 //crea las imagenes de textura y las guarda em el struct
 void	create_walls(t_scene_data *sd, t_data data)
 {
-	printf("%s\n", data.ea);
 	sd->walls.tx_right = create_img(sd->mlx, data.ea);
 	if (!(sd->walls.tx_right))
 		error(sd->mlx);
-	printf("%s\n", data.we);
 	sd->walls.tx_left = create_img(sd->mlx, data.we);
 	if (!(sd->walls.tx_left))
 		error(sd->mlx);
-	printf("%s\n", data.no);
 	sd->walls.tx_up = create_img(sd->mlx, data.no);
 	if (!(sd->walls.tx_up))
 		error(sd->mlx);
-	printf("%s\n", data.so);
 	sd->walls.tx_down = create_img(sd->mlx, data.so);
 	if (!(sd->walls.tx_down))
 		error(sd->mlx);
