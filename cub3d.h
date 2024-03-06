@@ -6,7 +6,7 @@
 /*   By: ljustici <ljustici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 15:56:54 by ljustici          #+#    #+#             */
-/*   Updated: 2024/03/05 17:28:36 by ljustici         ###   ########.fr       */
+/*   Updated: 2024/03/06 12:34:32 by ljustici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,12 @@ typedef enum e_error
 	ERROR_FILE_EMPTY,
 	INVALID_CHAR_IN_LINES,
 	ERROR_NO_PATHS,
+	ERROR_NO_COLOR,
 	ERROR_MALLOC_ERROR,
 	INVALID_CHAR,
 	EMPTY_LINE_IN_MAP,
+	ERROR_NO_PLAYER,
+	ERROR_MANY_PLAYER,
 	END = 99,
 }					t_error;
 
