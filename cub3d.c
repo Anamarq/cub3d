@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anamarqu <anamarqu@student.42malaga.com>   +#+  +:+       +#+        */
+/*   By: ljustici <ljustici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 12:37:08 by anamarqu          #+#    #+#             */
-/*   Updated: 2024/03/06 12:37:09 by anamarqu         ###   ########.fr       */
+/*   Updated: 2024/03/06 13:05:35 by ljustici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ int32_t	main(int32_t argc, char *argv[])
 
 	atexit(leaks); //BORRAR
 	parser(argc, argv, &data);
-	print_map_content(data.map); //BORRAR
 	initialize_data(&sd, data);
 	set_graphics(&sd, data);
 	free_memory(&sd);

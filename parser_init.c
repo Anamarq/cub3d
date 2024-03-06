@@ -6,7 +6,7 @@
 /*   By: ljustici <ljustici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 16:10:50 by ljustici          #+#    #+#             */
-/*   Updated: 2024/03/05 13:43:57 by ljustici         ###   ########.fr       */
+/*   Updated: 2024/03/06 12:34:41 by ljustici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ int	is_line_correct(t_data *data, char *line)
 	if (type)
 	{
 		if (!is_path_format(line, type, data))
-			data->error = INVALID_CHAR_IN_LINES;
+			data->error = ERROR_NO_PATHS;
 	}
 	else
 	{
@@ -80,7 +80,7 @@ int	is_line_correct(t_data *data, char *line)
 		if (type)
 		{
 			if (!is_color_format(line, type, data))
-				data->error = INVALID_CHAR_IN_LINES;
+				data->error = ERROR_NO_COLOR;
 		}
 		else if (!is_all_spaces(line))
 			data->error = INVALID_CHAR_IN_LINES;
