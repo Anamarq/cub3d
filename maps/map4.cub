@@ -1,10 +1,10 @@
 F 234,56,254
 
 
-NO ./sprites/wall1.png
-SO ./sprites/wall2.png
-WE ./sprites/wall3.png
-EA ./sprites/wall4.png
+NO ./sprites/wall1-min.png
+SO ./sprites/wall2-min.png
+WE ./sprites/wall3-min.png
+EA ./sprites/wall4-min.png
 
 C 45, 34, 54
 

@@ -6,7 +6,7 @@
 /*   By: ljustici <ljustici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 14:57:42 by ljustici          #+#    #+#             */
-/*   Updated: 2024/03/05 14:58:56 by ljustici         ###   ########.fr       */
+/*   Updated: 2024/03/06 13:28:06 by ljustici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ char	**get_file_input(t_data *data)
 	while (line && !is_all_spaces(line))
 	{
 		if (!is_map_line_correct(line, data))
-			return (NULL);
+			return (free(input), NULL);
 		input = ft_join_free(input, line);
 		free(line);
 		line = get_next_line(data->fd);

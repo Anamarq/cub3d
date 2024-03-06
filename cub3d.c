@@ -6,7 +6,7 @@
 /*   By: ljustici <ljustici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 12:37:08 by anamarqu          #+#    #+#             */
-/*   Updated: 2024/03/06 13:05:35 by ljustici         ###   ########.fr       */
+/*   Updated: 2024/03/06 13:28:39 by ljustici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int32_t	main(int32_t argc, char *argv[])
 	t_data			data;
 	t_scene_data	sd;
 
-	atexit(leaks); //BORRAR
+	atexit(leaks);
 	parser(argc, argv, &data);
 	initialize_data(&sd, data);
 	set_graphics(&sd, data);

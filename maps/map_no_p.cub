@@ -1,0 +1,15 @@
+F 0,0,0
+
+
+NO ./sprites/wall1.png
+SO ./sprites/wall2.png
+WE ./sprites/wall3.png
+EA ./sprites/wall4.png
+
+C 45, 34, 54
+
+    1111111
+    1000001
+    10000001111
+    10000000001
+    1111111111111

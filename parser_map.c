@@ -6,7 +6,7 @@
 /*   By: ljustici <ljustici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 14:19:33 by ljustici          #+#    #+#             */
-/*   Updated: 2024/03/06 12:56:01 by ljustici         ###   ########.fr       */
+/*   Updated: 2024/03/06 13:30:28 by ljustici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	flood_fill(char **tab, t_point size, t_point begin)
 	fill(tab, size, begin, tab[begin.y][begin.x]);
 }
 
-int	 is_map_start(char *line, t_data data)
+int	is_map_start(char *line, t_data data)
 {
 	size_t	i;
 	size_t	len;

@@ -6,19 +6,11 @@
 /*   By: ljustici <ljustici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 18:51:03 by ljustici          #+#    #+#             */
-/*   Updated: 2024/03/06 12:48:34 by ljustici         ###   ########.fr       */
+/*   Updated: 2024/03/06 13:32:12 by ljustici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-/*static void	end_and_free_program(t_data *data)
-{
-	ft_error(*data);
-	close(data->fd);
-	free_struct(data);
-	exit(-1);
-}*/
 
 int	parser(int argc, char **argv, t_data *data)
 {
@@ -46,6 +38,5 @@ int	parser(int argc, char **argv, t_data *data)
 	size = get_size(data->map, ft_array_len(data->map));
 	data->x = size.x;
 	data->y = size.y;
-	close(data->fd);
-	return (0);
+	return (close(data->fd), 0);
 }

@@ -6,7 +6,7 @@
 /*   By: ljustici <ljustici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 15:56:54 by ljustici          #+#    #+#             */
-/*   Updated: 2024/03/06 12:34:32 by ljustici         ###   ########.fr       */
+/*   Updated: 2024/03/06 13:34:31 by ljustici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -217,10 +217,11 @@ int					parser(int argc, char **argv, t_data *data);
 
 /**********************************
  ******* DEBUG PARSER FUNCTIONS ***
-*********************************/
+
 
 void				print_map_content(char **content);
 void				print_struct_content(t_data data);
+*********************************/
 
 //Graphics part
 //Draw
