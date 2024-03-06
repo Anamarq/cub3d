@@ -3,19 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ljustici <ljustici@student.42.fr>          +#+  +:+       +#+        */
+/*   By: anamarqu <anamarqu@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/06 12:37:08 by anamarqu          #+#    #+#             */
-/*   Updated: 2024/03/06 13:28:39 by ljustici         ###   ########.fr       */
+/*   Created: 2024/03/06 13:49:03 by anamarqu          #+#    #+#             */
+/*   Updated: 2024/03/06 13:49:04 by anamarqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-void	leaks(void)
-{
-	system("leaks -q cub3d");
-}
 
 void	free_memory(t_scene_data *sd)
 {
@@ -37,7 +32,6 @@ int32_t	main(int32_t argc, char *argv[])
 	t_data			data;
 	t_scene_data	sd;
 
-	atexit(leaks);
 	parser(argc, argv, &data);
 	initialize_data(&sd, data);
 	set_graphics(&sd, data);
