@@ -24,8 +24,10 @@
 
 # define WIDTH 1000
 # define HEIGHT 1000
-# define TILE 1000
+# define TILE 500
 # define FOV 60
+# define SPEED 30.0
+# define TURN 2.0
 
 typedef enum e_error
 {

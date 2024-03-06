@@ -84,9 +84,9 @@ void	initialize_data(t_scene_data *scene_data, t_data parse_data)
 	}
 	scene_data->ply->x = 200.0;
 	scene_data->ply->y = 200.0;
-	scene_data->ply->rot_angle = 3.0 * M_PI / 2;
-	scene_data->ply->move_step = 50.0;
-	scene_data->ply->rot_step = 3.0 * (M_PI / 180);
+	scene_data->ply->rot_angle = 2.0 * M_PI / 2;
+	scene_data->ply->move_step = SPEED;
+	scene_data->ply->rot_step = TURN * (M_PI / 180);
 	scene_data->ray = malloc(WIDTH * sizeof(t_ray_data));
 	if (scene_data->ray == NULL)
 	{

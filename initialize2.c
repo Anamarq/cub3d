@@ -53,7 +53,7 @@ void	set_player(t_scene_data *sd)
 void	set_graphics(t_scene_data *sd, t_data data)
 {
 	set_player(sd);
-	sd->mlx = mlx_init(WIDTH, HEIGHT, "MLX42", true);
+	sd->mlx = mlx_init(WIDTH, HEIGHT, "MLX42", false);
 	if (!(sd->mlx))
 		error(sd->mlx);
 	draw_background(data.ceiling, data.floor, sd->mlx);

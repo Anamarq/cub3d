@@ -1,7 +1,7 @@
-NO ./sprites/wall1-min.png
-SO ./sprites/wall2-min.png
-WE ./sprites/wall3-min.png
-EA ./sprites/wall4-min.png
+NO ./sprites/wall1_500.png
+SO ./sprites/wall2_500.png
+WE ./sprites/wall3_500.png
+EA ./sprites/wall4_500.png
 
 F 220,100,30
 C 225,30,10
