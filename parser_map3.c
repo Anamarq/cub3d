@@ -6,7 +6,7 @@
 /*   By: ljustici <ljustici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 13:44:21 by ljustici          #+#    #+#             */
-/*   Updated: 2024/03/06 13:26:45 by ljustici         ###   ########.fr       */
+/*   Updated: 2024/03/06 15:21:00 by ljustici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ int	is_map_line_correct(char *line, t_data *data)
 	{
 		if (is_invalid_char_in_map(line, n))
 		{
-			data->error = INVALID_CHAR_IN_LINES;
+			data->error = INVALID_CHAR_IN_MAP;
 			free(line);
 			return (0);
 		}

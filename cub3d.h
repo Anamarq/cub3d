@@ -6,7 +6,7 @@
 /*   By: ljustici <ljustici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 15:56:54 by ljustici          #+#    #+#             */
-/*   Updated: 2024/03/06 13:34:31 by ljustici         ###   ########.fr       */
+/*   Updated: 2024/03/06 15:18:00 by ljustici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ typedef enum e_error
 	ERROR_FILE,
 	ERROR_FILE_EMPTY,
 	INVALID_CHAR_IN_LINES,
+	INVALID_CHAR_IN_MAP,
 	ERROR_NO_PATHS,
 	ERROR_NO_COLOR,
 	ERROR_MALLOC_ERROR,

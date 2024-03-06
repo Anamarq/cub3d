@@ -6,7 +6,7 @@
 /*   By: ljustici <ljustici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 16:38:21 by ljustici          #+#    #+#             */
-/*   Updated: 2024/03/06 13:35:13 by ljustici         ###   ########.fr       */
+/*   Updated: 2024/03/06 15:19:03 by ljustici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ void	ft_error_file_content(t_data *data)
 	else if (data->error == ERROR_FILE_EMPTY)
 		write(2, "File is empty\n", 23);
 	else if (data->error == INVALID_CHAR_IN_LINES)
+		write(2, "Forbidden character in info\n", 29);
+	else if (data->error == INVALID_CHAR_IN_MAP)
 		write(2, "Forbidden character in map\n", 28);
 	else if (data->error == ERROR_NO_PATHS)
 		write(2, "Invalid path\n", 14);
