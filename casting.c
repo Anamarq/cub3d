@@ -65,8 +65,8 @@ void	cast(t_ray_data *ray, t_scene_data *sd)
 		down = 1;
 	if (ray->ray_angle > M_PI / 2 && ray->ray_angle < 3 * M_PI / 2)
 		left = 1;
-	horiz_dist = DBL_MAX;
-	vert_dist = DBL_MAX;
+	horiz_dist = 999999999999999999;
+	vert_dist = 999999999999999999;
 	if (horizontal_colision(down, left, ray, sd))
 		horiz_dist = distance_between_points(ray->x, ray->y,
 				ray->wall_hit_x_horiz, ray->wall_hit_y_horiz);
