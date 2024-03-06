@@ -16,7 +16,7 @@
 # include "MLX42/include/MLX42/MLX42.h"
 # include "libft/libft.h"
 # include <fcntl.h>
-# include <float.h>
+//# include <float.h>
 # include <math.h>
 # include <stdio.h>
 # include <stdlib.h>

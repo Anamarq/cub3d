@@ -84,7 +84,8 @@ int	horizontal_colision(int down, int left, t_ray_data *ray, t_scene_data *sd)
 //XIntercept is the following x vert
 //Loop to search for collision point. As long as there is no crash
 //tile_x, and We obtain the square by rounding down
-//If there is a collision, wallHitX is assigned. If not, we advance to the next box
+//If there is a collision, wallHitX is assigned.
+//If not, we advance to the next box
 int	loop_colision_vert(t_colision_data col_data, t_ray_data *ray,
 	t_scene_data *sd)
 {
