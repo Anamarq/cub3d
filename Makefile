@@ -3,6 +3,7 @@
 NAME	= cub3d
 CFLAGS	= -Wall -Werror -Wextra -g #-fsanitize=address
 LIBMLX	= ./MLX42
+CC		= gcc
 
 HEADERS	= -I ./include -I $(LIBMLX)
 LIBS	= -lglfw -L /Users/$(USER)/.brew/opt/glfw/lib/ $(LIBMLX)/libmlx42.a

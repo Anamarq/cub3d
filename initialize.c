@@ -53,7 +53,7 @@ void	reserve_memory_map(t_scene_data *scene_data, t_data parse_data)
 	scene_data->map = malloc(parse_data.y * sizeof(char *));
 	if (scene_data->map == NULL)
 	{
-		printf("Error: no se pudo asignar memoria para map\n");
+		free(scene_data->map);
 		exit(EXIT_FAILURE);
 	}
 	while (i < parse_data.y)
@@ -79,7 +79,7 @@ void	initialize_data(t_scene_data *scene_data, t_data parse_data)
 	scene_data->ply = malloc(sizeof(t_player_data));
 	if (scene_data->ply == NULL)
 	{
-		printf("Error: no se pudo asignar memoria para player\n");
+		free(scene_data->ply);
 		exit(EXIT_FAILURE);
 	}
 	scene_data->ply->x = 200.0;
@@ -90,7 +90,7 @@ void	initialize_data(t_scene_data *scene_data, t_data parse_data)
 	scene_data->ray = malloc(WIDTH * sizeof(t_ray_data));
 	if (scene_data->ray == NULL)
 	{
-		printf("Error: no se pudo asignar memoria para ray\n");
+		free(scene_data->ray);
 		exit(EXIT_FAILURE);
 	}
 	reserve_memory_map(scene_data, parse_data);

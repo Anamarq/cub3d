@@ -24,7 +24,9 @@ static int	is_atoible(char *word)
 	while (j < n)
 	{
 		if (!ft_isdigit(word[j]) && word[j] != '\n')
+		{
 			return (0);
+		}
 		j++;
 	}
 	return (1);
@@ -82,7 +84,6 @@ int	is_color_format(char *line, int type, t_data *data)
 	{
 		if (!is_atoible(rgb[i]))
 		{
-			printf("no es atoible[%s]\n", rgb[i]);
 			return (0);
 		}
 		if (ft_atoi(rgb[i]) < 0 || ft_atoi(rgb[i]) > 255)
