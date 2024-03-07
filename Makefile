@@ -3,7 +3,6 @@
 NAME	= cub3d
 CFLAGS	= -Wall -Werror -Wextra -g #-fsanitize=address
 LIBMLX	= ./MLX42
-#LEAKS	= ../leaks-aga/memory-leaks/memory_leaks.a
 
 HEADERS	= -I ./include -I $(LIBMLX)
 LIBS	= -lglfw -L /Users/$(USER)/.brew/opt/glfw/lib/ $(LIBMLX)/libmlx42.a
@@ -33,7 +32,7 @@ $(LIBFT_PATH):
 
 clean:
 	@rm -f $(OBJS)
-	make -C libft clean
+	make -C libft/ clean
 	@$(MAKE) -C $(LIBMLX) clean
 
 fclean: clean
